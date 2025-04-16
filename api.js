@@ -11,7 +11,15 @@ const app = express();
 
 // parse Data
 app.use(express.json());
-app.use(cors());
+const cors = require("cors");
+
+app.use(
+  cors({
+    origin: ["https://motel-frontend-seven.vercel.app"],
+    credentials: true,
+  })
+);
+
 app.use(express.urlencoded({ extended: true }));
 
 // Use routes
